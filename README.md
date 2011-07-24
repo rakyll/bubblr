@@ -12,7 +12,7 @@ to a hard-to-guess name.
 
     Channel channel = new Channel(MainActivity.this, new URL("http://....appspot.com/proxy/proxy.html"), "ef32521");
     Socket socket = channel.open(new SocketHandler() {
-	    @Override
+        @Override
         public void onOpen() {
             Log.d("channelapi", "Socket is opened");
         }		
