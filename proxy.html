@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script type="text/javascript" src="/_ah/channel/jsapi"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+var channels = {}
+var sockets = {};
+
+function ChannelProxy(channelId, token){
+	this.channel = new goog.appengine.Channel(token);
+	channels[channelId] = this;
+}
+
+ChannelProxy.prototype.open = function(socketId){
+
+    console.log("openning socket: " + socketId);
+    sockets[socketId] = this.channel.open();
+
+    sockets[socketId].onopen = function() {
+	    eval("Proxy" + socketId + ".onOpen()");
+    };
+    sockets[socketId].onmessage = function(message) {
+	    eval("Proxy" + socketId + ".onMessage('" + message + "')");
+    };
+    sockets[socketId].onerror = function(error) {
+	    eval("Proxy" + socketId + ".onError('" + error + "')");
+    };
+    sockets[socketId].onclose = function() {
+	    eval("Proxy" + socketId + ".onClose()");
+    };
+    return sockets[socketId];
+}
+
+</script>
+
+</body>
+</html>
