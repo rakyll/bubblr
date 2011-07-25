@@ -9,7 +9,7 @@ How to begin
 1. You need to upload proxy.html to your App Engine application. You can rename it
 to a hard-to-guess name.
 2. Create a channel and open a socket on that channel.
-
+```
     Channel channel = new Channel(MainActivity.this, new URL("http://....appspot.com/proxy/proxy.html"), "ef32521");
     Socket socket = channel.open(new SocketHandler() {
         @Override
@@ -31,4 +31,4 @@ to a hard-to-guess name.
         public void onClose() {
             Log.d("channelapi", "Socket is closed");
         }
-    }); 
+    }); ````
