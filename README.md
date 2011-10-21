@@ -1,7 +1,7 @@
 Android Channel API
 ===================
-android-channel-api is an experimental project that aims to be a native Android client for 
-App Engine's Channel API. It wraps a WebView to act as a proxy between regular JavaScript 
+android-channel-api is an experimental project that aims to be a native Android client for
+App Engine's Channel API. It wraps a WebView to act as a proxy between regular JavaScript
 API and the native Java implementation.
 
 How to begin
@@ -19,13 +19,13 @@ to a hard-to-guess name.
             @Override
             public void onMessage(String message) {
                 Log.d("channelapi", "Recieved message: " + message);
-            }	
+            }
             @Override
             public void onError(String error) {
                 Log.d("channelapi", "Error occured: " + error);
-            }		
+            }
             @Override
             public void onClose() {
                 Log.d("channelapi", "Socket is closed");
             }
-        }); 
+        });

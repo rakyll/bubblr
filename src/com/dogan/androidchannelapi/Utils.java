@@ -6,7 +6,7 @@ import android.util.Log;
 import android.webkit.WebView;
 
 public class Utils {
-	
+
 	/**
 	 * Create a new channel on Web proxy.
 	 *
@@ -16,13 +16,13 @@ public class Utils {
 	 */
 	public static void newChannel(
 			WebView webView, String channelId, String token){
-		
-		String command = String.format("javascript:new ChannelProxy('%s', '%s');", 
+
+		String command = String.format("javascript:new ChannelProxy('%s', '%s');",
 				channelId, token);
 		Log.d("channelapi", command);
-		webView.loadUrl(command);	
+		webView.loadUrl(command);
 	}
-	
+
 	/**
 	 * Open a socket on Web proxy.
 	 *
@@ -32,12 +32,12 @@ public class Utils {
 	 */
 	public static void openSocket(
 			WebView webView, String channelId, String socketId){
-		String command = String.format("javascript:channels['%s'].open('%s')", 
+		String command = String.format("javascript:channels['%s'].open('%s')",
 				channelId, socketId);
 		Log.d("channelapi", command);
 		webView.loadUrl(command);
 	}
-	
+
 	/**
 	 * Close socket on Web proxy.
 	 *
@@ -47,12 +47,12 @@ public class Utils {
 	 */
 	public static void closeSocket(
 			WebView webView, String socketId){
-		String command = String.format("javascript:sockets['%s'].close()", 
+		String command = String.format("javascript:sockets['%s'].close()",
 				socketId);
 		Log.d("channelapi", command);
 		webView.loadUrl(command);
 	}
-	
+
 	/**
 	 * Generates a random string with given prefix.
 	 *
