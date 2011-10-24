@@ -21,10 +21,10 @@ public class Channel {
 	 * @param token channel will be created with
 	 */
 	public Channel(Context context, URL proxyUrl, String token){
-		
+
 		mToken = token;
 		mChannelId = Utils.random("channel");
-		
+
 		mWrappedWebView = new WebView(context);
 		mWrappedWebView.getSettings().setJavaScriptEnabled(true);
 		mWrappedWebView.loadUrl(proxyUrl.toString());
@@ -34,7 +34,7 @@ public class Channel {
 		    }
 		});
 	}
-	
+
 	/**
 	 * Open a socket on this channel. This method returns a Socket
 	 * object. You can set the callback methods using a SocketHandler
@@ -48,10 +48,10 @@ public class Channel {
 		socket.open();
 		return socket;
 	}
-	
-	
+
+
 	/**
-	 * Opens a socket on this channel. This method 
+	 * Opens a socket on this channel. This method
 	 * returns a Socket object.
 	 *
 	 * @return the opened socket
@@ -59,8 +59,8 @@ public class Channel {
 	public Socket open(){
 		return open(null);
 	}
-	
-	
+
+
 	/**
 	 * Returns the randomly generated channel id.
 	 *
@@ -69,7 +69,7 @@ public class Channel {
 	public String getChannelId(){
 		return mChannelId;
 	}
-	
+
 	/**
 	 * Returns the wrapped web view that works as a
 	 * proxy between this lib and Channel API.
